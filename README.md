@@ -28,26 +28,33 @@ You can use any framework you prefer to build REST API, here are some examples: 
 * If you choose to build a REST API, the response must be a JSON.
 * If you choose to build a CLI, the response must be a YAML.
 * To read from the database you should use “pure” JDBC, without frameworks this time.
-* We would like to generate reports with the following information:
-  * Number of Clients by Country (and optionally by City too)
-  * Films by Actor (with a filter by rate)
-  * Information: Actor Name, Film Title, Description, Rating.
-  * Exec the query once, and provide a filter by rating.
 
-Provide a method to rent a DVD:
-First, confirm that the given inventory item is available.
-You may need to check whether the customer has an outstanding balance before processing the rental and that the given inventory item is in stock.
+### Part 1
+We would like to generate reports using the API REST (or CLI) with the following information:
 
-Return a DVD:
-Set the return date.
-It may be necessary to check the customer balance and perhaps process a payment for overdue fees by inserting a row into the payment table.
+  * Number of Clients by the requested Country (and optionally by City too)
+  * Films by requested Actor, with a filter by Category.
+    * Return the following information:  Actor First Name, Actor Last Name, Film Title, Description, Category Name. 
+    * Run this query only once, saving the result in memory.
 
-Find Overdue DVDs:
-Many DVD stores produce a daily list of overdue rentals so that customers can be contacted and asked to return their overdue DVDs.
 
-To create such a list, search the rental table for films with a return date that is NULL and where the rental date is further in the past than the rental duration specified in the film table. If so, the film is overdue and we should produce the name of the film along with the customer name and phone number.
+### Part 2 
+- **Rent a DVD**
 
-Extra Point: Add an Integration Test using our Docker JUnit extension, you can download it from our Gitlab repository: https://gitlab.com/ongresinc/docker-junit-extension, and compile it with `mvn clean install`.
+    First, confirm that the requested item is available in the inventory.
+
+    You may need to check whether the customer has an outstanding balance before processing the rental and that the given inventory item is in stock.
+
+- **Return a DVD**
+
+    Set the return date.
+    It may be necessary to check the customer balance and perhaps process a payment for overdue fees by inserting a row into the payment table.
+
+- **Find Overdue DVDs**
+
+    Many DVD stores produce a daily list of overdue rentals so that customers can be contacted and asked to return their overdue DVDs.
+
+    To create such a list, search the rental table for films with a return date that is NULL and where the rental date is further in the past than the rental duration specified in the film table. If so, the film is overdue and we should produce the name of the film along with the customer name and phone number.
 
 ### Use of Docker image
 We like Docker, so we use it (almost) everywere, this test is no exception :wink:. If you don't know how to use docker don't worry, only a few basic steps are required to be up and running.
@@ -61,6 +68,9 @@ For convenience, the Maven `pom.xml` project contains a profile to build the ima
 The generated image name is `sakila-img`, simply run `docker run -d --name sakila-pg sakila-img` to create a container named `sakila-pg`.
 
 # F.A.Q.
+
+*Do you have to complete all the tests?* Ideally yes, but don’t worry if you don’t have enough time to finish all the exercises and the extra point. We’re going to value the correctness of the solution as the clean code. 
+
 *Is it OK to share your solutions publicly?* Yes, the questions are not prescriptive, the process and discussion around the code is the valuable part. You do the work, you own the code. Given we are asking you to give up your time, it is entirely reasonable for you to keep and use your solution as you see fit.
 
 *Should I do X?* For any value of X, it is up to you, we intentionally leave the problem a little open-ended and will leave it up to you to provide us with what you see as important. Just remember the rough time frame of the project. If it is going to take you a couple of days, it isn't essential.
