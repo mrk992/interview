@@ -41,20 +41,21 @@ We would like to generate reports using the API REST (or CLI) with the following
 ### Part 2 
 - **Rent a DVD**
 
-    First, confirm that the requested item is available in the inventory.
-
-    You may need to check whether the customer has an outstanding balance before processing the rental and that the given inventory item is in stock.
+    First, confirm that the requested item is available in the inventory, you can use the SQL function `SELECT INVENTORY_IN_STOCK(inventory_id);`
+    Regist the rent with an insert into `rental` table. 
+    You may need to check whether the customer has an outstanding balance before processing the rental and that the given inventory item is in stock, you can use the SQL function `select get_customer_balance(customer_id, LOCALTIMESTAMP);`.
+    To finish, add a payment into the `payment` table.
 
 - **Return a DVD**
 
-    Set the return date.
-    It may be necessary to check the customer balance and perhaps process a payment for overdue fees by inserting a row into the payment table.
+    Set the return date in the `rental` table.
+    It may be necessary to check the customer balance and perhaps process a payment for overdue fees by inserting a row into the payment table, you can use the SQL function `select get_customer_balance(customer_id, LOCALTIMESTAMP);`.
 
 - **Find Overdue DVDs**
 
     Many DVD stores produce a daily list of overdue rentals so that customers can be contacted and asked to return their overdue DVDs.
 
-    To create such a list, search the rental table for films with a return date that is NULL and where the rental date is further in the past than the rental duration specified in the film table. If so, the film is overdue and we should produce the name of the film along with the customer name and phone number.
+    To create such a list, search the rental table for films with a return date that is NULL and where the rental date is further in the past than the rental duration specified in the film table. If so, the film is overdue and we should produce the name of the film along with the customer name and phone number. 
 
 ### Use of Docker image
 We like Docker, so we use it (almost) everywere, this test is no exception :wink:. If you don't know how to use docker don't worry, only a few basic steps are required to be up and running.
