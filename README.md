@@ -35,7 +35,7 @@ We would like to generate reports using the API REST (or CLI) with the following
   * Number of Clients by the requested Country (and optionally by City too)
   * Films by requested Actor, with a filter by Category.
     * Return the following information:  Actor First Name, Actor Last Name, Film Title, Description, Category Name. 
-    * Run this query only once, saving the result in memory (hint: you can use the Java Stream API).
+    * The filter by category should not be in the query (hint: you can use the Java Stream API).
 
 
 ### Part 2 
