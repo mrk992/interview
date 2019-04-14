@@ -1,13 +1,13 @@
 package com.ongres.app.entities;
 
 public class CountCustomersTO {
-    private int custormers;
+    private int customers;
 
-    public int getCustormers() {
-        return custormers;
+    public int getCustomers() {
+        return customers;
     }
 
-    public void setCustormers(int custormers) {
-        this.custormers = custormers;
+    public void setCustomers(int customers) {
+        this.customers = customers;
     }
 }

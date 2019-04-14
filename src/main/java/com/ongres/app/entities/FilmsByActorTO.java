@@ -1,12 +1,12 @@
 package com.ongres.app.entities;
 
 public class FilmsByActorTO {
-    String actorFirstName;
-    String actorLastName;
-    String filmTitle;
-    String description;
-    String category;
-    String error;
+    private String actorFirstName;
+    private String actorLastName;
+    private String filmTitle;
+    private String description;
+    private String category;
+    private String error;
 
     public String getActorFirstName() {
         return actorFirstName;

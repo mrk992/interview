@@ -1,9 +1,6 @@
 package com.ongres.app.repository;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -80,5 +77,11 @@ public class CustomerRepository implements ICustomerRepository {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public boolean canRental(int customerId, Timestamp localTimeStamp) {
+        //TODO: implement
+        return true;
     }
 }

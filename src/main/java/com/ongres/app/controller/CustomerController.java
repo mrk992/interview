@@ -20,10 +20,10 @@ public class CustomerController {
         CountCustomersTO customers = new CountCustomersTO();
         if (!country.isEmpty()) {
             //customerRepository = new CustomerRepository();
-            customers.setCustormers(customerRepository.countCustomersByCountry(country));
+            customers.setCustomers(customerRepository.countCustomersByCountry(country));
 
         } else {
-            customers.setCustormers(0);
+            customers.setCustomers(0);
         }
         return customers;
 
@@ -34,10 +34,10 @@ public class CustomerController {
         CountCustomersTO customers = new CountCustomersTO();
         if (!city.isEmpty()) {
             //customerRepository = new CustomerRepository();
-            customers.setCustormers(customerRepository.countCustomersByCity(city));
+            customers.setCustomers(customerRepository.countCustomersByCity(city));
 
         } else {
-            customers.setCustormers(0);
+            customers.setCustomers(0);
         }
         return customers;
     }

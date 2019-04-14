@@ -28,10 +28,10 @@ public class FilmsController {
             films.add(film);
             return films;
         }
-        String firtName = names[0];
+        String firstName = names[0];
         String lastName = names[1];
         if (!actor.isEmpty()) {
-            filmsRepository.getFilmsByActor(firtName, lastName).stream().filter(film -> film.getCategory().equals(category)).forEach(
+            filmsRepository.getFilmsByActor(firstName, lastName).stream().filter(film -> film.getCategory().equals(category)).forEach(
                     filmByActor -> {
                         FilmsByActorTO film = new FilmsByActorTO();
                         film.setActorFirstName(filmByActor.getActorFirstName());
