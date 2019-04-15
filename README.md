@@ -41,7 +41,7 @@ We would like to generate reports using the API REST (or CLI) with the following
 ### Part 2 
 - **Rent a DVD**
 
-    Supposing you have the `customer_id` (for example, 473), the staff name `Mike Hillyer` and the DVD title `HOBBIT ALIEN` to rent it. 
+    Supposing you have the `customer_id` (for example, 473), the staff name `Jon Stephens` and the DVD title `HOBBIT ALIEN` to rent it. 
 
     First, confirm that the requested DVD is available in the inventory, you can use the SQL function `SELECT INVENTORY_IN_STOCK(inventory_id);`
     Regist the rent with an insert into `rental` table. 
