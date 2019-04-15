@@ -87,7 +87,7 @@ The project contains the `Dockerfile` to build the image in the docker folder, s
 For convenience, the Maven `pom.xml` project contains a profile to build the image directly from Maven, just run `./mvnw generate-resources -Pdocker`.
 
 The generated image name is `sakila-img`, simply run `docker run -d -p 5432:5432 --name sakila-pg sakila-img` to create a container named `sakila-pg`.
-Now you can connect to the PostgreSQL database with `psql -h localhost -p 5432 postgres postgres` or using the IP of the Docker container, depends on the operative system. 
+Now you can connect to the PostgreSQL database with `psql -h localhost -p 5432 sakila sakila` or using the IP of the Docker container, depends on the operative system. 
 
 
 # F.A.Q.
